@@ -88,6 +88,10 @@ alias vim='nvim'
 alias lg='lazygit'
 alias ld='lazydocker'
 
+# Functions
+q() { claude -p "$@"; }
+qs() { claude --model sonnet -p "$@"; }
+
 [[ ! -f ~/.zshenv ]] || source ~/.zshenv
 export PATH="$HOME/.local/bin:$PATH"
 

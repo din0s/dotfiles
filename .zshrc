@@ -68,7 +68,7 @@ autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export TERM=xterm-256color
+# export TERM=xterm-256color
 # export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 

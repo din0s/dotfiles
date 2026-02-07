@@ -1,0 +1,38 @@
+# Theme & Colors
+background = "#0d1117"
+background-opacity = 0.9
+cursor-color = "#58a6ff"
+
+# Font Configuration
+font-family = "MesloLGS NF"
+font-family-bold = "MesloLGS NF Bold"
+font-family-italic = "MesloLGS NF Italic"
+font-family-bold-italic = "MesloLGS NF Bold Italic"
+font-size = 14
+
+# Window Settings
+window-width = 120
+window-height = 35
+
+# Shell Integration
+shell-integration = zsh
+
+# Clipboard & URL Features
+copy-on-select = true
+link-url = true
+clipboard-read = allow
+clipboard-write = allow
+
+# Terminal Behavior
+scrollback-limit = 10000
+confirm-close-surface = false
+
+# macOS Specific
+macos-option-as-alt = left
+macos-icon = xray
+
+# Keybinds
+# keybind = global:f12=toggle_quick_terminal
+
+# Auto-start tmux
+# command = ~/.autotmux.sh

@@ -31,9 +31,12 @@ fi
 # Build the status line text
 status_line=$(printf "%s%s | %s%s" "$short_dir" "$git_branch" "$model" "$context_info")
 
-# If running inside tmux, update the window name
-if [ -n "$TMUX" ]; then
-  tmux rename-window "$status_line" 2>/dev/null
+# If running inside tmux, update the window name for the pane's own window
+if [ -n "$TMUX" ] && [ -n "$TMUX_PANE" ]; then
+  target_window=$(tmux display-message -t "$TMUX_PANE" -p '#{window_id}' 2>/dev/null)
+  if [ -n "$target_window" ]; then
+    tmux rename-window -t "$target_window" "$status_line" 2>/dev/null
+  fi
 fi
 
 # Output the status line (for Claude Code's display)

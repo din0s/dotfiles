@@ -85,6 +85,8 @@ export EDITOR='nvim'
 
 # Alias
 alias vim='nvim'
+alias lg='lazygit'
+alias ld='lazydocker'
 
 [[ ! -f ~/.zshenv ]] || source ~/.zshenv
 export PATH="$HOME/.local/bin:$PATH"
@@ -93,4 +95,4 @@ export PATH="$HOME/.local/bin:$PATH"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # THIS NEEDS TO BE AT THE END
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"

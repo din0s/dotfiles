@@ -83,7 +83,7 @@ export EDITOR='nvim'
 # Alias
 alias vim='nvim'
 
-source ~/.zshenv
+[[ ! -f ~/.zshenv ]] || source ~/.zshenv
 export PATH="$HOME/.local/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

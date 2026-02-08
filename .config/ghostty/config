@@ -35,4 +35,4 @@ macos-icon = xray
 # keybind = global:f12=toggle_quick_terminal
 
 # Auto-start tmux
-# command = ~/.autotmux.sh
+command = /bin/zsh -c "tmux new -A -s ghostty"

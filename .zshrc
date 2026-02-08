@@ -60,8 +60,6 @@ plugins+=(zsh-syntax-highlighting)
 plugins+=(k)
 plugins+=(tmux)
 
-ZSH_TMUX_AUTOSTART=true
-
 # this needs to stay right befource sourcing oh-my-zsh
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 autoload -U compinit && compinit

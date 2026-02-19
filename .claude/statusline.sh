@@ -40,4 +40,4 @@ if [ -n "$TMUX" ] && [ -n "$TMUX_PANE" ]; then
 fi
 
 # Output the status line (for Claude Code's display)
-printf "%s" "$status_line"
+# printf "%s" "$status_line"

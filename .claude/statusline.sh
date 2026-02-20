@@ -16,7 +16,7 @@ git_branch=""
 if git -C "$dir" rev-parse --git-dir > /dev/null 2>&1; then
   branch=$(git -C "$dir" -c core.fileMode=false -c core.preloadindex=true --no-optional-locks branch --show-current 2>/dev/null)
   if [ -n "$branch" ]; then
-    git_branch=" (${branch})"
+    git_branch="${branch}"
   fi
 fi
 
@@ -29,15 +29,16 @@ if [ -n "$used_pct" ]; then
 fi
 
 # Build the status line text
-status_line=$(printf "%s%s | %s%s" "$short_dir" "$git_branch" "$model" "$context_info")
+if [ -n "$git_branch" ]; then
+  status_line=$(printf "%s | %s%s" "$git_branch" "$model" "$context_info")
+else
+  status_line=$(printf "%s%s" "$model" "$context_info")
+fi
 
-# If running inside tmux, update the window name for the pane's own window
+# Mark this pane as a Claude Code pane (for tmux hook)
 if [ -n "$TMUX" ] && [ -n "$TMUX_PANE" ]; then
-  target_window=$(tmux display-message -t "$TMUX_PANE" -p '#{window_id}' 2>/dev/null)
-  if [ -n "$target_window" ]; then
-    tmux rename-window -t "$target_window" "$status_line" 2>/dev/null
-  fi
+  tmux set -p -t "$TMUX_PANE" @claude_dir "$short_dir" 2>/dev/null
 fi
 
 # Output the status line (for Claude Code's display)
-# printf "%s" "$status_line"
+printf "%s" "$status_line"

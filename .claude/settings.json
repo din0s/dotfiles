@@ -10,7 +10,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "if [ -n \"$TMUX\" ]; then tmux set-window-option automatic-rename on 2>/dev/null; fi"
+            "command": "if [ -n \"$TMUX\" ]; then tmux set-window-option automatic-rename on 2>/dev/null; tmux set -pu @claude_dir 2>/dev/null; fi"
           }
         ]
       }

@@ -98,3 +98,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # THIS NEEDS TO BE AT THE END
 eval "$(zoxide init zsh --cmd cd)"
+
+# In Claude Code, revert cd to builtin (zoxide's wrapper causes issues)
+if [[ -n "$CLAUDECODE" ]]; then
+  unfunction cd 2>/dev/null
+fi
